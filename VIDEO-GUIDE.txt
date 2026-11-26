@@ -1,0 +1,85 @@
+PANDUAN VIDEO ILUSTRASI AI - PERSONALITY EXPLORER: VIDEO INTERAKTIF AI
+===================================================
+
+Total 20 video. Simpan di folder "videos" dengan nama persis seperti di bawah.
+Durasi saran: 4-8 detik per video (video akan berputar ulang otomatis / loop).
+Rasio saran: 1:1 (persegi) agar serasi dengan gambar yang sudah ada. 16:9 juga bisa.
+
+TIPS
+- 15 video pilihan (A/B/C): gunakan gambar di folder "images" sebagai gambar awal
+  (fitur image-to-video di Veo, Runway, Kling, Luma, Hailuo, dll). Karakter dan
+  gaya gambar otomatis konsisten. Untuk q1-c dan q4-c yang berisi beberapa panel,
+  video sebaiknya menceritakan urutan panel tersebut secara berurutan.
+- 5 video soal: belum ada gambar awalnya. Buat dari teks (text-to-video) atau buat
+  dulu satu gambar situasi, lalu ubah menjadi video. Sertakan "same character,
+  same art style" agar tokoh sama dengan video pilihan.
+- Video bersuara tidak wajib. Game memutar video tanpa suara dulu (aturan browser);
+  siswa dapat menyalakan suara lewat kontrol video.
+- Hindari teks/tulisan di dalam video, karena AI sering salah menulis.
+
+GAYA UMUM (tempel di awal setiap prompt)
+"2D cartoon animation, soft warm colors, Indonesian junior high school students in
+white shirts and navy uniforms, same main character with short black hair, smooth
+gentle motion, no text."
+
+===================================================
+VIDEO SOAL  (videos/qN-soal.mp4)
+===================================================
+q1-soal   Masuk Kelas Baru
+  Prompt: The main student stands at the doorway of a new classroom, looking at
+  classmates he does not know yet; the camera moves slowly in.
+
+q2-soal   Tugas Kelompok
+  Prompt: A teacher hands out group assignment papers in class; the main student
+  receives a paper and looks at his classmates around the table.
+
+q3-soal   Waktu Istirahat
+  Prompt: A school bell rings; students in the classroom look up and start moving;
+  the main student looks around deciding what to do.
+
+q4-soal   Presentasi di Depan Kelas
+  Prompt: The teacher calls a student's name; the main student looks up, holding
+  notes, while classmates turn to look at him.
+
+q5-soal   Waktu Luang Setelah Sekolah
+  Prompt: The main student walks out of the school gate after class with a
+  backpack, afternoon light, thinking about what to do next.
+
+===================================================
+VIDEO PILIHAN  (videos/qN-a|b|c.mp4)   <- gambar awal: images/qN-x.jpg
+===================================================
+q1-a  Siswa duduk tenang di bangku sambil mengamati teman-teman di kelas.
+  Motion: he sits quietly, eyes slowly looking around the classroom.
+q1-b  Siswa berdiri, melambaikan tangan, menyapa teman-teman.
+  Motion: he waves and smiles, classmates turn and greet him back.
+q1-c  Gambar atas mengamati, gambar bawah berkenalan.
+  Motion: he first observes quietly, then waves and begins talking with a classmate.
+
+q2-a  Siswa menulis di buku sendiri, teman-teman berdiskusi di meja yang sama.
+  Motion: he writes in his notebook while others discuss beside him.
+q2-b  Siswa berdiskusi dengan kelompok, menunjuk kertas, membagi tugas.
+  Motion: he points at the paper, everyone nods and talks together.
+q2-c  Siswa menulis bagiannya sendiri setelah berdiskusi.
+  Motion: the group talks briefly, then he turns to write his own part.
+
+q3-a  Siswa membaca buku sendirian saat istirahat.
+  Motion: he turns a page of the book; trees sway outside the window.
+q3-b  Siswa berjalan bersama teman-teman sambil mengobrol ke kantin.
+  Motion: the group of friends walks and chats together toward the canteen.
+q3-c  Siswa berdiri sambil berpikir, ragu pergi bersama teman atau tetap di kelas.
+  Motion: he thinks with his hand on his chin, glancing from friends to the classroom.
+
+q4-a  Siswa memegang catatan, bersiap sebelum presentasi.
+  Motion: he looks over his notes, takes a calm breath, then looks up.
+q4-b  Siswa langsung berbicara di depan kelas dengan gerakan tangan.
+  Motion: he speaks confidently, gesturing with his hand while classmates listen.
+q4-c  Empat panel: gugup di awal, lalu menyesuaikan diri dan mulai berbicara.
+  Motion: he looks nervous, scratches his head, then relaxes and starts speaking.
+
+q5-a  Siswa santai di bean bag bermain game sendirian di kamar.
+  Motion: he plays a handheld game, thumbs moving, smiling slightly.
+q5-b  Siswa bermain gitar dan bola bersama teman di taman.
+  Motion: he strums the guitar while friends laugh and play with a ball nearby.
+q5-c  Siswa memegang stik game, membayangkan bermain bersama teman dan membaca sendiri.
+  Motion: he thinks, two thought bubbles appear: friends playing together, and
+  himself relaxing alone with a book.

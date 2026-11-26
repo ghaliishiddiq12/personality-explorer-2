@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personality Explorer: Video Interaktif AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-container">
+
+    <!-- HALAMAN PEMBUKA -->
+    <section id="start-screen" class="screen active">
+      <span class="deco star s1"></span>
+      <span class="deco star s2"></span>
+      <span class="deco star s3"></span>
+      <span class="deco cloud c1"></span>
+
+      <div class="badge">GAME EDUKASI • VIDEO INTERAKTIF AI</div>
+      <h1>PERSONALITY<br><span class="ribbon">EXPLORER</span></h1>
+      <p class="subtitle">Kenali Kecenderunganmu lewat Video Interaktif AI</p>
+
+      <!-- Kartu ilustrasi (memakai gambar dari folder images, ganti sesuai selera) -->
+      <div class="hero-stage">
+        <!-- Ganti video: ubah nama file di src, poster = gambar cadangan -->
+        <div class="hero-card left">
+          <video src="videos/j1.mp4" poster="images/j1.png" autoplay muted loop playsinline preload="auto" aria-label="Video tugas kelompok"></video>
+        </div>
+        <div class="hero-card right">
+          <video src="videos/j2.mp4" poster="images/j2.png" autoplay muted loop playsinline preload="auto" aria-label="Video pulang sekolah"></video>
+        </div>
+        <div class="hero-card center">
+          <video src="videos/j3.mp4" poster="images/j3.png" autoplay muted loop playsinline preload="auto" aria-label="Video masuk kelas baru"></video>
+          <span class="play-badge"></span>
+        </div>
+      </div>
+      
+
+      <div class="mission-pills">
+        <span>10 Misi</span>
+        <span>Video AI</span>
+        <span>Tanpa jawaban salah</span>
+      </div>
+
+      <p class="intro">
+        Tonton situasi dalam video AI, lalu selesaikan misi serunya!
+      </p>
+
+      <button class="primary-btn start-btn" onclick="showAbout()">MULAI GAME</button>
+
+      <div class="home-links">
+        <button type="button" class="link-btn" onclick="openInfo('teacher-screen')">Panduan Guru</button>
+        <span aria-hidden="true">•</span>
+        <button type="button" class="link-btn" onclick="openInfo('credits-screen')">Kredit &amp; Keterangan AI</button>
+      </div>
+      <p class="dev-line">
+        Dikembangkan oleh <b data-info="developer"></b>
+        <span data-info-row="affiliation">· <span data-info="affiliation"></span></span>
+        · <span data-info="year"></span>
+      </p>
+      <p class="ai-note">Gambar dan video dalam game ini dibuat dengan bantuan AI.</p>
+    </section>
+
+    <!-- TENTANG GAME -->
+    <section id="about-screen" class="screen">
+      <div class="about-left">
+      <div class="about-icon">
+        <svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true">
+          <defs><linearGradient id="bulbG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe27a"/><stop offset="1" stop-color="#ffb340"/></linearGradient></defs>
+          <path d="M32 6c-10.5 0-18 7.6-18 17 0 6.2 3.2 10.4 6.5 14 2 2.200 3.200 4.200 3.500 6.500h16c.3-2.300 1.500-4.300 3.500-6.500 3.300-3.600 6.500-7.800 6.500-14C50 13.600 42.500 6 32 6z" fill="url(#bulbG)" stroke="#e8890f" stroke-width="2.500" stroke-linejoin="round"/>
+          <rect x="23" y="46" width="18" height="5" rx="2.500" fill="#8fa6c8"/>
+          <rect x="26" y="52" width="12" height="5" rx="2.500" fill="#6f87ab"/>
+          <path d="M25 22c1-4 4-6.500 8-7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+        </svg>
+      </div>
+      <div class="badge">TENTANG GAME</div>
+      <h2>Personality Explorer<br><span class="title-sub">Video Interaktif AI</span></h2>
+
+      <p class="about-text">
+        Game edukasi video interaktif berbasis AI ini membantu kamu mengenali
+        kecenderungan kepribadian melalui video situasi sehari-hari dan
+        pilihan responsmu.
+      </p>
+
+      </div>
+      <div class="about-right">
+      <div class="about-box">
+        <h3>Cara Bermain</h3>
+        <ol>
+          <li>Ronde 1: tonton video situasi dan pilih jawabanmu (5 soal).</li>
+          <li>Ronde 2: selesaikan 5 misi interaktif, mulai dari berlari mengejar pilihan sampai menggeser kartu.</li>
+          <li>Pilih yang paling sesuai dengan dirimu, bukan yang menurutmu benar.</li>
+          <li>Setelah 10 soal, lihat hasil kecenderunganmu.</li>
+        </ol>
+      </div>
+
+      <p class="tendency-hint">Ketuk untuk mengenal tiap kecenderungan:</p>
+      <div class="tendency-box">
+        <button class="tendency-btn introvert" onclick="showTendency('introvert')"><i class="dot d-intro"></i>Introvert</button>
+        <button class="tendency-btn ekstrovert" onclick="showTendency('ekstrovert')"><i class="dot d-ekstro"></i>Ekstrovert</button>
+        <button class="tendency-btn ambivert" onclick="showTendency('ambivert')"><i class="dot d-ambi"></i>Ambivert</button>
+      </div>
+
+      <p class="small-note">
+        Tidak ada jawaban benar atau salah. Jawablah sesuai dengan dirimu.
+      </p>
+
+      <button class="primary-btn" onclick="startGame()">MULAI SOAL</button>
+      <button class="secondary-btn" onclick="showScreen('start-screen')">KEMBALI</button>
+          </div>
+    </section>
+
+    <!-- PENJELASAN KECENDERUNGAN (Introvert / Ekstrovert / Ambivert) -->
+    <section id="tendency-screen" class="screen">
+      <div class="about-left">
+      <div class="tendency-icon" id="tendency-icon"></div>
+      <div class="badge">APA ITU?</div>
+      <h2 id="tendency-title"></h2>
+
+      <p class="about-text" id="tendency-definition"></p>
+
+      </div>
+      <div class="about-right">
+      <div class="about-box">
+        <h3>Contoh Kecenderungannya</h3>
+        <ul id="tendency-examples"></ul>
+      </div>
+
+      <p class="small-note">
+        Setiap orang bisa memiliki sedikit dari ketiganya. Ini bukan label tetap
+        dan bukan diagnosis.
+      </p>
+
+      <button class="secondary-btn" onclick="showAbout()">&larr; KEMBALI KE TENTANG GAME</button>
+          </div>
+    </section>
+
+    <!-- LAYAR SOAL -->
+    <section id="question-screen" class="screen">
+      <div class="top-row">
+        <span id="question-number">SOAL 1 DARI 5</span>
+        <span id="progress-text">20%</span>
+      </div>
+      <div class="progress-bar">
+        <div id="progress-fill"></div>
+      </div>
+
+      <div class="question-media" id="question-media"></div>
+      <p class="ai-note">Ilustrasi dan video dibuat dengan bantuan AI. <button type="button" class="link-btn" onclick="openInfo('credits-screen')">Lihat kredit</button></p>
+      <h2 id="question-title"></h2>
+      <p id="question-text"></p>
+
+      <button class="primary-btn" onclick="showIllustration(0)">LIHAT VIDEO PILIHAN</button>
+    </section>
+
+    <!-- VIDEO ILUSTRASI PILIHAN (A / B / C) -->
+    <section id="illustration-screen" class="screen">
+      <div class="top-row">
+        <span id="illustration-number">SOAL 1 DARI 5</span>
+        <span id="illustration-progress">VIDEO 1/3</span>
+      </div>
+
+      <div class="illustration-label" id="illustration-label">PILIHAN A</div>
+      <h2 id="illustration-title">Video Pilihan A</h2>
+      <div class="illustration-explain">
+        <p class="instruction"><strong>Perhatikan video ilustrasi ini terlebih dahulu.</strong></p>
+        <p class="scene-text" id="illustration-scene"></p>
+      </div>
+
+      <div class="single-illustration" id="single-illustration"></div>
+      <p class="ai-note">Ilustrasi dan video dibuat dengan bantuan AI. <button type="button" class="link-btn" onclick="openInfo('credits-screen')">Lihat kredit</button></p>
+
+      <p class="illustration-reminder">
+        Belum perlu memilih jawaban. Lanjutkan untuk melihat video berikutnya.
+      </p>
+
+      <div class="button-row">
+        <button class="secondary-btn back-btn" id="illustration-back-btn" onclick="prevIllustration()">&larr; KEMBALI</button>
+        <button class="primary-btn" id="illustration-next-btn" onclick="nextIllustration()">NEXT</button>
+      </div>
+    </section>
+
+    <!-- LAYAR PILIHAN JAWABAN -->
+    <section id="choice-screen" class="screen">
+      <div class="top-row">
+        <span id="choice-number">SOAL 1 DARI 5</span>
+        <span>PILIHAN JAWABAN</span>
+      </div>
+
+      <h2>Pilih Jawabanmu</h2>
+      <p id="choice-question"></p>
+      <p class="choice-hint">Ketuk video yang paling sesuai dengan dirimu.</p>
+
+      <div id="choices-container" class="choices-container"></div>
+      <p class="ai-note">Ilustrasi dan video dibuat dengan bantuan AI. <button type="button" class="link-btn" onclick="openInfo('credits-screen')">Lihat kredit</button></p>
+    </section>
+
+    <!-- RONDE 2: PENGANTAR -->
+    <section id="round2-screen" class="screen">
+      <div class="round-badge"><span>2</span></div>
+      <div class="badge">RONDE 2</div>
+      <h2>Misi Interaktif</h2>
+      <p class="about-text">
+        Kamu sudah menonton 5 situasi. Sekarang saatnya beraksi! Ada 5 misi seru
+        yang meminta kamu berlari, membalas, memilih, mengatur, dan menggeser.
+      </p>
+      <div class="about-box mission-list" id="mission-list"></div>
+      <button class="primary-btn start-btn" onclick="beginMissions()">MULAI MISI</button>
+    </section>
+
+    <!-- MISI 1: LARI AKHIR PEKAN (game lari 3 jalur) -->
+    <section id="run-screen" class="screen mission-screen">
+      <div class="top-row">
+        <span class="m-num">SOAL 6 DARI 10</span>
+        <span class="m-tag">MISI 1/5</span>
+      </div>
+      <div class="progress-bar"><div class="m-fill"></div></div>
+
+      <div class="illustration-label">MISI: LARI AKHIR PEKAN</div>
+      <div class="illustration-explain" id="run-intro">
+        <p class="instruction"><strong>Bersepeda melewati satu hari Sabtu!</strong></p>
+        <p class="scene-text">Di setiap persimpangan ada 3 kegiatan, satu di tiap jalur. Kayuh sepedamu ke kegiatan yang paling kamu suka. Lompati rintangan yang rendah dengan panah atas, hindari yang tinggi, dan coba trik freestyle dengan panah bawah!</p>
+      </div>
+
+      <div class="run-wrap" id="run-wrap">
+        <div class="run-stage" id="run-stage">
+          <canvas id="run-canvas" aria-label="Arena lari tiga jalur"></canvas>
+          <div class="run-items" id="run-items"></div>
+          <canvas id="run-canvas-top" aria-hidden="true"></canvas>
+          <div class="run-hud">
+            <div class="run-score">
+              <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2l3 6.500 7 .8-5.200 4.800 1.500 7L12 17.400 5.700 21l1.500-7L2 9.300l7-.8z" fill="#ffc83d" stroke="#e8890f" stroke-width="1.500" stroke-linejoin="round"/></svg>
+              <b id="run-score">0</b>
+            </div>
+            <div class="run-when"><small id="run-when">SABTU PAGI</small><strong id="run-q">Bersiap...</strong></div>
+            <button type="button" class="run-sound" id="run-sound" aria-label="Suara menyala" aria-pressed="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z" fill="#fff"/><path class="wave" d="M16.500 8.500a5 5 0 0 1 0 7M19 6a8.500 8.500 0 0 1 0 12"/><path class="mute" d="M16 9l6 6M22 9l-6 6"/></svg>
+            </button>
+          </div>
+          <div class="run-steps" id="run-steps"></div>
+          <div class="run-overlay" id="run-overlay" aria-live="assertive"></div>
+        </div>
+      </div>
+
+      <div class="run-controls" id="run-controls">
+        <button type="button" class="swipe-btn no run-arrow" id="run-left" aria-label="Pindah jalur ke kiri">&larr; Kiri</button>
+        <button type="button" class="swipe-btn mid run-arrow" id="run-jump" aria-label="Lompat">&uarr; Lompat</button>
+        <button type="button" class="swipe-btn mid run-arrow trick" id="run-trick" aria-label="Lompat freestyle">&darr; Trik</button>
+        <button type="button" class="swipe-btn yes run-arrow" id="run-right" aria-label="Pindah jalur ke kanan">Kanan &rarr;</button>
+        <span class="run-hint">Ketuk atau seret untuk pindah jalur. Geser ke atas = lompat, ke bawah = trik freestyle. Papan ketik: panah kiri, kanan, atas, bawah.</span>
+      </div>
+      <button class="primary-btn" id="run-start" onclick="beginRun()">MULAI LARI!</button>
+
+      <div class="run-recap" id="run-recap" hidden>
+        <div class="recap-title">LARI SELESAI!</div>
+        <div class="recap-stars" id="run-stars"></div>
+        <div class="recap-stats">
+          <div><b id="run-stat-pick">0</b><small>Pilihan</small></div>
+          <div><b id="run-stat-hit">0</b><small>Tertabrak</small></div>
+          <div><b id="run-stat-trick">0</b><small>Trik</small></div>
+          <div><b id="run-stat-score">0</b><small>Skor</small></div>
+        </div>
+        <button class="primary-btn" onclick="finishRun()">LANJUT</button>
+      </div>
+    </section>
+
+    <!-- MISI 2: CHAT GRUP -->
+    <section id="chat-screen" class="screen mission-screen">
+      <div class="top-row">
+        <span class="m-num">SOAL 6 DARI 10</span>
+        <span class="m-tag">MISI 1/5</span>
+      </div>
+      <div class="progress-bar"><div class="m-fill"></div></div>
+
+      <div class="illustration-label">MISI: CHAT GRUP KELAS</div>
+      <div class="chat-window">
+        <div class="chat-head">
+          <span class="chat-avatar">7A</span>
+          <div><strong>Grup Kelas 7A</strong><small>Teman-temanmu sedang online</small></div>
+        </div>
+        <div class="chat-body" id="chat-body"></div>
+      </div>
+      <div class="reply-box" id="chat-replies"></div>
+      <button class="primary-btn" id="chat-next" onclick="finishChat()" style="display:none">LANJUT</button>
+    </section>
+
+    <!-- MISI 3: TAS KEMAH PULAU (seret barang ke dalam tas) -->
+    <section id="island-screen" class="screen mission-screen">
+      <div class="top-row">
+        <span class="m-num">SOAL 6 DARI 10</span>
+        <span class="m-tag">MISI 1/5</span>
+      </div>
+      <div class="progress-bar"><div class="m-fill"></div></div>
+
+      <div class="illustration-label">MISI: TAS KEMAH PULAU</div>
+
+      <div id="island-step1">
+        <div class="island-sign">
+          <strong>Kelasmu berkemah 3 hari di pulau!</strong>
+          <span>Tasmu hanya muat <b>3 barang</b>. Seret barang ke dalam tas, atau ketuk barangnya. Mau ganti? Ketuk barang yang menyembul dari tas untuk mengeluarkannya.</span>
+        </div>
+
+        <div class="island-arena" id="island-arena">
+          <div class="island-bag" id="island-bag">
+            <img class="bag-img" src="images/tas.webp" alt="Tas terbuka" draggable="false">
+          </div>
+          <!-- Isi tas: barang yang dipilih tampak menyembul dari mulut tas -->
+          <div class="bag-contents" id="bag-contents"></div>
+          <!-- Lapisan depan tas (bibir & saku depan): barang yang jatuh tampak masuk ke dalam tas -->
+          <img class="island-bag-front" id="island-bag-front" src="images/tas.webp" alt="" aria-hidden="true" draggable="false">
+          <div class="bag-plate" id="bag-plate">
+            <div class="bag-slots" id="bag-slots"></div>
+            <span class="bag-count"><span id="island-count">0/3</span> barang</span>
+          </div>
+          <div class="island-items" id="island-items"></div>
+        </div>
+
+        <p class="island-hint" id="island-hint">Seret barang ke dalam tas.</p>
+        <button class="primary-btn" id="island-next" onclick="islandToReason()" disabled>LANJUT</button>
+      </div>
+
+      <div id="island-step2" style="display:none">
+        <div class="island-sign">
+          <strong>Satu pertanyaan terakhir</strong>
+          <span>Kenapa kamu memilih barang-barang itu?</span>
+        </div>
+        <div class="chip-line" id="island-chosen"></div>
+        <div class="reply-box" id="island-reasons"></div>
+      </div>
+    </section>
+
+    <!-- MISI 4: BATERAI SOSIAL -->
+    <section id="battery-screen" class="screen mission-screen">
+      <div class="top-row">
+        <span class="m-num">SOAL 6 DARI 10</span>
+        <span class="m-tag">MISI 1/5</span>
+      </div>
+      <div class="progress-bar"><div class="m-fill"></div></div>
+
+      <div class="illustration-label">MISI: BATERAI SOSIAL</div>
+      <div class="step-dots" id="battery-dots"></div>
+      <div class="illustration-explain">
+        <p class="instruction"><strong id="battery-title"></strong></p>
+        <p class="scene-text" id="battery-text"></p>
+      </div>
+      <div class="battery-wrap">
+        <div class="battery" id="battery"><div class="battery-fill" id="battery-fill"></div><span id="battery-pct">50%</span></div>
+        <div class="battery-state" id="battery-state"></div>
+      </div>
+      <input type="range" min="0" max="100" value="50" step="1" id="battery-slider" class="battery-slider" aria-label="Level energi">
+      <div class="slider-ends"><span>Habis</span><span>Penuh</span></div>
+      <button class="primary-btn" id="battery-next" onclick="nextBattery()" disabled>LANJUT</button>
+    </section>
+
+    <!-- MISI 5: KARTU AKU BANGET -->
+    <section id="cards-screen" class="screen mission-screen">
+      <div class="top-row">
+        <span class="m-num">SOAL 6 DARI 10</span>
+        <span class="m-tag">MISI 1/5</span>
+      </div>
+      <div class="progress-bar"><div class="m-fill"></div></div>
+
+      <div class="illustration-label">MISI: KARTU "AKU BANGET"</div>
+      <div class="illustration-explain">
+        <p class="instruction"><strong>Seberapa cocok pernyataan ini denganmu?</strong></p>
+        <p class="scene-text">Geser kartu ke kanan (Aku banget), ke kiri (Bukan aku), atau tekan Kadang-kadang.</p>
+      </div>
+      <div class="swipe-count" id="swipe-count">Kartu 1/8</div>
+      <div class="swipe-stack" id="swipe-stack"></div>
+      <div class="swipe-buttons">
+        <button class="swipe-btn no" onclick="answerCard(-1)">&larr; Bukan aku</button>
+        <button class="swipe-btn mid" onclick="answerCard(0)">Kadang</button>
+        <button class="swipe-btn yes" onclick="answerCard(1)">Aku banget &rarr;</button>
+      </div>
+    </section>
+
+    <!-- HASIL -->
+    <section id="result-screen" class="screen">
+      <div class="confetti" id="confetti" aria-hidden="true"></div>
+
+      <div class="result-left">
+      <div class="result-banner">
+        <svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true"><path d="M20 8h24v14c0 8-5.500 13-12 13s-12-5-12-13V8z" fill="#ffd35a" stroke="#e8890f" stroke-width="3" stroke-linejoin="round"/><path d="M20 12h-8c0 8 3 13 9 14M44 12h8c0 8-3 13-9 14" fill="none" stroke="#e8890f" stroke-width="3" stroke-linecap="round"/><rect x="27" y="35" width="10" height="9" fill="#f2a22c"/><rect x="19" y="44" width="26" height="9" rx="3" fill="#ff9f2e" stroke="#e8890f" stroke-width="2.500"/></svg>
+        <span>MISI SELESAI!</span>
+      </div>
+
+      <div class="result-hero" id="result-hero">
+        <div class="result-photo"><img id="result-image" src="images/q1-b.jpg" alt="Ilustrasi hasil"></div>
+        <span class="result-star"><svg viewBox="0 0 24 24" width="30" height="30"><path d="M12 2l3 6.500 7 .8-5.200 4.800 1.500 7L12 17.400 5.700 21l1.500-7L2 9.300l7-.8z" fill="#fff"/></svg></span>
+      </div>
+
+      <p class="ai-note">Ilustrasi dibuat dengan bantuan AI.</p>
+      <div class="feedback-label">KECENDERUNGANMU ADALAH</div>
+      <div id="result-type" class="result-type"></div>
+      <p id="result-tagline" class="result-tagline"></p>
+
+      </div>
+      <div class="result-right">
+      <div class="trait-chips" id="trait-chips"></div>
+
+      <p id="result-description"></p>
+
+      <div class="score-list">
+        <div class="score-row introvert">
+          <span class="score-name"><i class="dot d-intro"></i>Introvert</span>
+          <div class="score-track"><div class="score-fill" id="introvert-bar"></div></div>
+          <strong id="introvert-score">0</strong>
+        </div>
+        <div class="score-row ekstrovert">
+          <span class="score-name"><i class="dot d-ekstro"></i>Ekstrovert</span>
+          <div class="score-track"><div class="score-fill" id="ekstrovert-bar"></div></div>
+          <strong id="ekstrovert-score">0</strong>
+        </div>
+        <div class="score-row ambivert">
+          <span class="score-name"><i class="dot d-ambi"></i>Ambivert</span>
+          <div class="score-track"><div class="score-fill" id="ambivert-bar"></div></div>
+          <strong id="ambivert-score">0</strong>
+        </div>
+      </div>
+
+      <div class="journey">
+        <div class="journey-title">Jejak jawabanmu</div>
+        <div class="journey-dots" id="journey-dots"></div>
+      </div>
+
+      <div class="note">
+        <strong>Catatan:</strong> Hasil ini hanya menunjukkan kecenderungan
+        berdasarkan jawaban dalam game dan bukan diagnosis kepribadian profesional.
+      </div>
+
+      <button class="primary-btn start-btn" onclick="restartGame()">MAIN LAGI</button>
+      <button class="secondary-btn home-btn" onclick="goHome()">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.400" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.500L12 4l9 7.500"/><path d="M5.500 10v10h13V10"/><path d="M10 20v-6h4v6"/></svg>
+        KEMBALI KE HOME
+      </button>
+          </div>
+    </section>
+
+    <!-- KREDIT & KETERANGAN AI -->
+    <section id="credits-screen" class="screen info-screen">
+      <div class="badge">KREDIT</div>
+      <h2>Pengembang &amp; Keterangan AI</h2>
+
+      <div class="info-grid">
+        <div class="about-box info-card">
+          <h3>Pengembang</h3>
+          <ul>
+            <li><b data-info="developer"></b></li>
+            <li data-info-row="affiliation"><span data-info="affiliation"></span></li>
+            <li data-info-row="supervisor"><span data-info="supervisor"></span></li>
+            <li>Tahun pengembangan: <span data-info="year"></span></li>
+          </ul>
+        </div>
+
+        <div class="about-box info-card">
+          <h3>Keterangan Penggunaan AI</h3>
+          <p>
+            Video situasi, video pilihan jawaban, serta gambar ilustrasi dalam game ini
+            <b>dibuat dengan bantuan kecerdasan buatan (AI)</b>. Tokoh yang tampil adalah
+            ilustrasi rekaan, bukan orang sebenarnya. Karena dibuat AI, sebagian detail gambar
+            mungkin tidak sempurna.
+            <span data-info-row="aiTools">Aplikasi AI yang digunakan: <b data-info="aiTools"></b>.</span>
+          </p>
+        </div>
+
+        <div class="about-box info-card info-wide">
+          <h3>Sumber Aset</h3>
+          <table class="info-table">
+            <thead><tr><th>Aset</th><th>Cara pembuatan</th></tr></thead>
+            <tbody>
+              <tr><td>Video situasi dan video pilihan (Ronde 1) serta video halaman utama</td><td>Dibuat dengan AI (video dari gambar ilustrasi)</td></tr>
+              <tr><td>Gambar ilustrasi soal, sampul, dan hasil akhir</td><td>Dibuat dengan AI (gambar)</td></tr>
+              <tr><td>Latar jalan, pelari bersepeda, rintangan, dan efek (Lari Akhir Pekan)</td><td>Dibuat dengan Canva AI; jalan tiga jalur digambar oleh kode</td></tr>
+              <tr><td>Ikon kegiatan, gambar barang, dan latar pulau (Tas Kemah)</td><td>Grafik vektor (SVG) dan gambar buatan pengembang</td></tr>
+              <tr><td>Musik latar dan efek suara</td><td>Disintesis langsung oleh kode di browser (WebAudio); tanpa sampel audio pihak ketiga</td></tr>
+              <tr><td>Huruf</td><td>Arial (huruf bawaan perangkat)</td></tr>
+              <tr><td>Program permainan</td><td>HTML, CSS, dan JavaScript tanpa pustaka luar; berjalan tanpa internet</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <p class="small-note">Hasil game hanya menunjukkan kecenderungan berdasarkan jawaban, bukan diagnosis kepribadian profesional.</p>
+      <button class="secondary-btn" onclick="closeInfo()">&larr; KEMBALI</button>
+    </section>
+
+    <!-- PANDUAN GURU (satu halaman, bisa dicetak) -->
+    <section id="teacher-screen" class="screen info-screen">
+      <div class="badge">PANDUAN GURU</div>
+      <h2>Personality Explorer: Video Interaktif AI</h2>
+
+      <div class="info-grid info-grid-3">
+        <div class="about-box info-card">
+          <h3>Tentang media</h3>
+          <ul>
+            <li>Sasaran: siswa SMP kelas 7&ndash;9.</li>
+            <li>Tujuan: membantu siswa mengenali kecenderungan <b>introvert, ekstrovert, dan ambivert</b> melalui situasi sehari-hari.</li>
+            <li>Bukan tes diagnostik dan <b>tidak ada jawaban benar atau salah</b>.</li>
+          </ul>
+        </div>
+
+        <div class="about-box info-card">
+          <h3>Persiapan</h3>
+          <ul>
+            <li>Buka <b>index.html</b> di browser terbaru (Chrome, Edge, Firefox, atau Safari).</li>
+            <li>Folder <b>videos</b> harus berada di samping index.html.</li>
+            <li>Bisa di PC, tablet, atau HP. Tidak perlu internet.</li>
+            <li>Nyalakan suara. Ketuk layar sekali agar musik berbunyi; tombol speaker di pojok kanan atas untuk membisukan.</li>
+          </ul>
+        </div>
+
+        <div class="about-box info-card">
+          <h3>Alur permainan</h3>
+          <ol>
+            <li>Ronde 1 (soal 1&ndash;5): tonton video situasi dan tiga video pilihan, lalu pilih satu.</li>
+            <li>Ronde 2 (soal 6&ndash;10): lima misi: Lari Akhir Pekan, Chat Grup Kelas, Tas Kemah Pulau, Baterai Sosial, Kartu Aku Banget.</li>
+            <li>Hasil: kecenderungan terbanyak, skor tiga kecenderungan, dan penjelasannya.</li>
+          </ol>
+        </div>
+
+        <div class="about-box info-card">
+          <h3>Memaknai hasil</h3>
+          <ul>
+            <li>Setiap soal menyumbang satu poin pada satu kecenderungan (total 10).</li>
+            <li>Poin terbanyak menjadi hasil. Bila seri, hasilnya <b>campuran / seimbang</b>.</li>
+            <li>Skor dan bintang di game lari hanya hiburan dan tidak memengaruhi hasil.</li>
+            <li>Hasil adalah gambaran kecenderungan saat ini, bukan label tetap.</li>
+          </ul>
+        </div>
+
+        <div class="about-box info-card">
+          <h3>Saran diskusi kelas</h3>
+          <ul>
+            <li>Situasi mana yang paling membuatmu nyaman? Mengapa?</li>
+            <li>Apakah hasilnya sesuai dengan gambaran dirimu?</li>
+            <li>Bagaimana kita bisa saling menghargai teman yang berbeda kecenderungan?</li>
+          </ul>
+        </div>
+
+        <div class="about-box info-card">
+          <h3>Jika ada kendala</h3>
+          <ul>
+            <li>Video tidak tampil: game memakai gambar cadangan; periksa folder videos.</li>
+            <li>Tidak ada suara: ketuk layar lalu cek tombol speaker dan volume perangkat.</li>
+            <li>Game lari terasa berat: tutup tab lain atau muat ulang halaman.</li>
+            <li>Mengulang: tombol MAIN LAGI di layar hasil.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="button-row info-actions">
+        <button class="secondary-btn" onclick="closeInfo()">&larr; KEMBALI</button>
+        <button class="primary-btn" onclick="printGuide()">CETAK PANDUAN</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="audio.js"></script>
+  <script src="script.js"></script>
+  <script src="info.js"></script>
+  <script src="missions.js"></script>
+  <script src="runner.js"></script>
+</body>
+</html>
