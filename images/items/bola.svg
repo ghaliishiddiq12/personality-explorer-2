@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="240" height="240">
+<defs></defs>
+<g stroke="#22345f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<clipPath id="bc"><circle cx="60" cy="60" r="42"/></clipPath>
+<circle cx="60" cy="60" r="42" fill="#ffffff"/>
+<g clip-path="url(#bc)" fill="#2a3a66" stroke-width="3">
+<polygon points="60.0,47.0 72.4,56.0 67.6,70.5 52.4,70.5 47.6,56.0"/><polygon points="60.0,31.0 45.7,20.6 51.2,3.9 68.8,3.9 74.3,20.6"/><polygon points="87.6,51.0 93.0,34.3 110.7,34.3 116.1,51.0 101.8,61.4"/><polygon points="77.0,83.5 94.7,83.5 100.1,100.2 85.9,110.6 71.6,100.2"/><polygon points="43.0,83.5 48.4,100.2 34.1,110.6 19.9,100.2 25.3,83.5"/><polygon points="32.4,51.0 18.2,61.4 3.9,51.0 9.3,34.3 27.0,34.3"/><path d="M60.0 47.0 L60.0 28.0" fill="none" stroke-width="3"/><path d="M72.4 56.0 L90.4 50.1" fill="none" stroke-width="3"/><path d="M67.6 70.5 L78.8 85.9" fill="none" stroke-width="3"/><path d="M52.4 70.5 L41.2 85.9" fill="none" stroke-width="3"/><path d="M47.6 56.0 L29.6 50.1" fill="none" stroke-width="3"/></g><circle cx="60" cy="60" r="42" fill="none"/><path d="M36 38 A30 30 0 0 1 56 24" fill="none" stroke="#ffffff" stroke-width="4" opacity=".9" stroke-linecap="round"/>
+</g></svg>

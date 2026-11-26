@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="240" height="240">
+<defs></defs>
+<g stroke="#22345f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+
+<clipPath id="tk"><path d="M10 84 L34 36 H108 L84 84Z"/></clipPath>
+<path d="M10 84 L34 36 H108 L84 84Z" fill="#fff6e6"/>
+<g clip-path="url(#tk)" stroke="none">
+  <g transform="matrix(1 0 -0.5 1 0 0)">
+   <g fill="#f2831f" opacity=".55">
+    <rect x="0" y="30" width="200" height="9"/><rect x="0" y="48" width="200" height="9"/><rect x="0" y="66" width="200" height="9"/><rect x="0" y="84" width="200" height="9"/>
+   </g>
+   <g fill="#f2831f" opacity=".55">
+    <rect x="30" y="0" width="9" height="140"/><rect x="48" y="0" width="9" height="140"/><rect x="66" y="0" width="9" height="140"/><rect x="84" y="0" width="9" height="140"/><rect x="102" y="0" width="9" height="140"/><rect x="120" y="0" width="9" height="140"/><rect x="138" y="0" width="9" height="140"/>
+   </g>
+  </g>
+</g>
+<path d="M10 84 L34 36 H108 L84 84Z" fill="none"/>
+<path d="M10 84 H84 L84 92 H10Z" fill="#e6c98e" stroke-width="3"/>
+<path d="M84 84 L108 36 V44 L84 92Z" fill="#d8b676" stroke-width="3"/>
+<path d="M14 100 h70" stroke="none"/>
+</g></svg>
